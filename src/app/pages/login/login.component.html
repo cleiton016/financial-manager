@@ -1,0 +1,19 @@
+<div class="card my-5" style="height: 400px;">
+    <div>
+        <h4 class="text-center">Login</h4>
+
+        <span>Faça login com seu email e senha para continuar</span>
+    </div>
+
+
+    <!-- Esse form não deve recaregar a pagina quando ouver um submit -->
+    <form class="from-group mt-5" (submit)="login($event)">
+        <div style="display: flex; flex-direction: column; width: 100%; justify-content: space-between;">
+            <input textInput type="text" placeholder="E-mail">
+            <input textInput type="text" placeholder="Senha"  class="my-5">
+            <a href="">Esqueci minha senha</a>
+        </div>
+    </form>
+
+    <fm-button full animation contrast="onBrand" >Entrar</fm-button>
+</div>
