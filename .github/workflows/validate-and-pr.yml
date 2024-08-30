@@ -48,3 +48,4 @@ jobs:
           branch: main
           title: "Sync develop with main"
           body: "This PR was created automatically to sync changes from develop to main."
+          token: ${{ secrets.PAT_TOKEN }}
