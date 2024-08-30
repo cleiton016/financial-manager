@@ -44,7 +44,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}  # Utilizando o GITHUB_TOKEN padrão
+          token: ${{ secrets.PAT_TOKEN }}  # Utilizando o GITHUB_TOKEN padrão
           commit-message: "Auto-generated PR from develop to main"
           branch: main  # Branch de destino
           base: develop    # Certifique-se que `main` é a branch base
