@@ -10,8 +10,7 @@ import { ButtonComponent } from "../../shared/components/buttons/button/button.c
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-login($event: SubmitEvent) {
-  console.log($event);
-}
-
+  login($event: SubmitEvent) {
+    console.log($event);
+  }
 }

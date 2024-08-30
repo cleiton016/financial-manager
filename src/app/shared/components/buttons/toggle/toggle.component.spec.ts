@@ -20,4 +20,10 @@ describe('ToggleComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should toggle the state', () => {
+    const initialCheckedState = component.checked();
+    component.toggleState();
+    expect(component.checked()).toBe(!initialCheckedState);
+  });
 });

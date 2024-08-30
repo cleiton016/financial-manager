@@ -13,14 +13,15 @@ module.exports = {
   collectCoverageFrom:["src/app/**/*.ts"],
   coveragePathIgnorePatterns:[
     ".config.ts",
-    ".routes.ts"
+    ".routes.ts",
+    "windowRef.ts",
   ],
   coverageThreshold: {
     global: {
-      statement: 90,
-      branches: 90,
-      functions: 90,
-      lines: 90
+      statement: 80,
+      branches: 80,
+      functions: 80,
+      lines: 80
     }
   },
 

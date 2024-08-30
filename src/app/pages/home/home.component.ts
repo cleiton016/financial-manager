@@ -1,8 +1,7 @@
-import { Component, effect, ElementRef, inject, signal } from '@angular/core';
+import { Component, effect, ElementRef, inject, signal, OnDestroy } from '@angular/core';
 import { AbstractComponent } from '@components/abstract/abstract.component';
 import { ButtonComponent } from '@components/buttons/button/button.component';
 import { ToggleComponent } from "@components/buttons/toggle/toggle.component";
-import { InputTextComponent } from '@components/inputs/input-text/input-text.component';
 import { InputDirective } from '@directives/input.directive';
 import { RippleDirective } from '@directives/ripple.directive';
 import { NavigationHome } from '@enums/navigation-home.enum';
@@ -12,11 +11,11 @@ import { NgIf } from '@angular/common';
 @Component({
   selector: 'fm-home',
   standalone: true,
-  imports: [ButtonComponent, ToggleComponent, RippleDirective, InputTextComponent, InputDirective, LoginComponent, NgIf],
+  imports: [ButtonComponent, ToggleComponent, RippleDirective,  InputDirective, LoginComponent, NgIf],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent extends AbstractComponent {
+export class HomeComponent extends AbstractComponent implements OnDestroy {
   el = inject(ElementRef).nativeElement as HTMLElement;
 
   toggle = signal(this.themeService.currentTheme)
@@ -29,8 +28,9 @@ export class HomeComponent extends AbstractComponent {
 
   stateToggle = effect(() =>{
     this.toggle()
-    this._initialized? this.toggleTheme(): this._initialized = true;
+    this.isInitialized()? this.toggleTheme(): this._initialized = true;
   })
+
 
   setNavigation(page: NavigationHome): void {
     this.currentPage = page;
@@ -41,6 +41,14 @@ export class HomeComponent extends AbstractComponent {
     setTimeout(() => {
       this.setNavigation(navigate)
     }, when === 'in' ? 300 : 600)
+  }
+
+  public isInitialized(): boolean {
+    return this._initialized;
+  }
+
+  ngOnDestroy() {
+    this.stateToggle.destroy
   }
 
 }

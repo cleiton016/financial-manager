@@ -41,7 +41,7 @@ export class ButtonComponent implements AfterViewInit {
     };
   }
 
-  private applyHoverEffect(buttonElement: HTMLElement) {
+  applyHoverEffect(buttonElement: HTMLElement) {
     buttonElement.addEventListener('mouseover', () => {
       buttonElement.style.transform = 'scale(1.05)';
       buttonElement.style.backgroundColor = this.outline() ? 'transparent' : '#ffffff00';
@@ -57,7 +57,7 @@ export class ButtonComponent implements AfterViewInit {
     });
   }
 
-  private applyFocusEffect(buttonElement: HTMLElement) {
+  applyFocusEffect(buttonElement: HTMLElement) {
     buttonElement.addEventListener('focus', () => {
       // Adicionar foco, se necessário
     });
