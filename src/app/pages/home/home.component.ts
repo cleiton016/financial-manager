@@ -7,11 +7,12 @@ import { RippleDirective } from '@directives/ripple.directive';
 import { NavigationHome } from '@enums/navigation-home.enum';
 import { LoginComponent } from "../login/login.component";
 import { NgIf } from '@angular/common';
+import { RegisterComponent } from "../register/register.component";
 
 @Component({
   selector: 'fm-home',
   standalone: true,
-  imports: [ButtonComponent, ToggleComponent, RippleDirective,  InputDirective, LoginComponent, NgIf],
+  imports: [ButtonComponent, ToggleComponent, RippleDirective, InputDirective, LoginComponent, NgIf, RegisterComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
