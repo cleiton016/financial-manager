@@ -1,0 +1,19 @@
+<nav>
+    <fm-toggle [(checked)]="toggle"></fm-toggle>
+</nav>
+
+<h1 class="text-center tracking-in-expand py-5">Finance Manager</h1>
+@switch (currentPage) {
+@case (navigation.login) {
+<fm-login [class]="classAnimation"></fm-login>
+}
+@case (navigation.register) {
+
+}
+}
+<div class="line-buttons">
+    <fm-button full animation outline (click)="setAnimation('in', 'slide-in-top', navigation.login)"
+        *ngIf="currentPage!==navigation.login" style="width: 100%;">Tenho uma conta</fm-button>
+    <fm-button full animation outline (click)="setAnimation('out','slide-out-top', navigation.register)"
+        *ngIf="currentPage!==navigation.register" style="width: 100%;">Criar uma conta</fm-button>
+</div>
