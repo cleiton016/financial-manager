@@ -51,4 +51,4 @@ jobs:
           title: "Sync develop with main"
           body: "Este PR foi criado automaticamente para sincronizar as mudanças da develop com a main."
           assignees: ''  # Pode adicionar responsáveis automaticamente
-          reviewers: ''  # Pode adicionar revisores automaticamente
+          reviewers: 'cleiton016'  # Pode adicionar revisores automaticamente
