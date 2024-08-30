@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { WindowRef } from './windowRef';
 
 @Injectable({
   providedIn: 'root'
@@ -6,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class ThemeService {
   private readonly themeKey = 'selected-theme';
 
-  constructor() {
+  constructor(private windowRef: WindowRef) {
     const savedTheme: any = localStorage.getItem(this.themeKey);
     const preferredTheme: any = this.getPreferredTheme();
 
@@ -28,6 +29,7 @@ export class ThemeService {
   }
 
   private getPreferredTheme(): 'light' | 'dark' {
+    const window = this.windowRef.nativeWindow;
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
 }

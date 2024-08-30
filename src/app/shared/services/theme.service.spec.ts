@@ -1,70 +1,85 @@
 import { TestBed } from '@angular/core/testing';
 import { ThemeService } from './theme.service';
+import { WindowRef } from './windowRef';
 
 describe('ThemeService', () => {
   let service: ThemeService;
+  let windowRefMock: any;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    windowRefMock = {
+      nativeWindow: {
+        matchMedia: jest.fn().mockReturnValue({
+          matches: false
+        })
+      }
+    };
+
+    TestBed.configureTestingModule({
+      providers: [
+        ThemeService,
+        { provide: WindowRef, useValue: windowRefMock }
+      ]
+    });
+
     service = TestBed.inject(ThemeService);
+  });
 
-    // Mock localStorage
-    spyOn(localStorage, 'getItem').and.callFake((key: string) => {
-      return key === 'selected-theme' ? 'light' : null;
-    });
-    spyOn(localStorage, 'setItem').and.callFake(() => {});
-
-    // Mock matchMedia
-    spyOn(window, 'matchMedia').and.callFake((query: string) => {
-      return {
-        matches: query === '(prefers-color-scheme: dark)',
-        media: query,
-        onchange: null,
-        addListener: jasmine.createSpy('addListener'),
-        removeListener: jasmine.createSpy('removeListener'),
-        addEventListener: jasmine.createSpy('addEventListener'),
-        removeEventListener: jasmine.createSpy('removeEventListener'),
-        dispatchEvent: jasmine.createSpy('dispatchEvent'),
-      };
-    });
+  afterEach(() => {
+    localStorage.clear();
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should set theme to light if no theme is saved and preferred theme is light', () => {
-    spyOn(service as any, 'getPreferredTheme').and.returnValue('light');
-    service = new ThemeService();
-    expect(localStorage.setItem).toHaveBeenCalledWith('selected-theme', 'light');
+  it('should set theme to light', () => {
+    service.setTheme('light');
     expect(document.body.getAttribute('data-theme')).toBe('light');
+    expect(localStorage.getItem('selected-theme')).toBe('light');
   });
 
-  it('should set theme to dark if no theme is saved and preferred theme is dark', () => {
-    spyOn(service as any, 'getPreferredTheme').and.returnValue('dark');
-    service = new ThemeService();
-    expect(localStorage.setItem).toHaveBeenCalledWith('selected-theme', 'dark');
+  it('should set theme to dark', () => {
+    service.setTheme('dark');
     expect(document.body.getAttribute('data-theme')).toBe('dark');
-  });
-
-  it('should set theme to saved theme if it exists', () => {
-    spyOn(localStorage, 'getItem').and.returnValue('dark');
-    service = new ThemeService();
-    expect(localStorage.setItem).toHaveBeenCalledWith('selected-theme', 'dark');
-    expect(document.body.getAttribute('data-theme')).toBe('dark');
+    expect(localStorage.getItem('selected-theme')).toBe('dark');
   });
 
   it('should toggle theme from light to dark', () => {
-    spyOn(localStorage, 'getItem').and.returnValue('light');
+    service.setTheme('light');
     service.toggleTheme();
-    expect(localStorage.setItem).toHaveBeenCalledWith('selected-theme', 'dark');
     expect(document.body.getAttribute('data-theme')).toBe('dark');
+    expect(localStorage.getItem('selected-theme')).toBe('dark');
   });
 
   it('should toggle theme from dark to light', () => {
-    spyOn(localStorage, 'getItem').and.returnValue('dark');
+    service.setTheme('dark');
     service.toggleTheme();
-    expect(localStorage.setItem).toHaveBeenCalledWith('selected-theme', 'light');
     expect(document.body.getAttribute('data-theme')).toBe('light');
+    expect(localStorage.getItem('selected-theme')).toBe('light');
+  });
+
+  it('should return true for currentTheme when theme is dark', () => {
+    service.setTheme('dark');
+    expect(service.currentTheme).toBe(true);
+  });
+
+  it('should return false for currentTheme when theme is light', () => {
+    service.setTheme('light');
+    expect(service.currentTheme).toBe(false);
+  });
+
+  it('should set theme based on preferred theme if no saved theme', () => {
+    windowRefMock.nativeWindow.matchMedia.mockReturnValue({ matches: false });
+    new ThemeService(windowRefMock);
+    expect(document.body.getAttribute('data-theme')).toBe('light');
+    expect(localStorage.getItem('selected-theme')).toBe('light');
+  });
+
+  it('should set theme based on saved theme if available', () => {
+    localStorage.setItem('selected-theme', 'light');
+    new ThemeService(windowRefMock);
+    expect(document.body.getAttribute('data-theme')).toBe('light');
+    expect(localStorage.getItem('selected-theme')).toBe('light');
   });
 });

@@ -9,10 +9,6 @@ import { NavigationHome } from '@enums/navigation-home.enum';
 import { LoginComponent } from "../login/login.component";
 import { NgIf } from '@angular/common';
 
-
-
-
-
 @Component({
   selector: 'fm-home',
   standalone: true,
@@ -37,15 +33,11 @@ export class HomeComponent extends AbstractComponent {
   })
 
   setNavigation(page: NavigationHome): void {
-    console.log('Passou aqui');
-    
     this.currentPage = page;
   }
 
   setAnimation(when:'in' | 'out' ,animation: string, navigate) {
     this.classAnimation = animation
-    
-    // apos executar a animação, chamar o callback
     setTimeout(() => {
       this.setNavigation(navigate)
     }, when === 'in' ? 300 : 600)

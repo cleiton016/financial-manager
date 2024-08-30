@@ -1,6 +1,10 @@
+const { pathsToModuleNameMapper } = require('ts-jest');
+const { compilerOptions } = require('./tsconfig');
+
 const esModules = ['@angular', '@ngrx', 'd3', '@ngx-translate']
 module.exports = {
   preset: 'jest-preset-angular',
+  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths || {}, { prefix: '<rootDir>/' }),
   setupFilesAfterEnv: ['<rootDir>/src/setup.jest.ts'],
   testPathIgnorePatterns: ['/node_modules/', '/dist/'],
 

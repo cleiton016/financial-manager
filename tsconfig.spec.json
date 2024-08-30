@@ -7,7 +7,14 @@
       "jest", "node"
     ],
     "allowJs": true,
-    "module": "CommonJS"
+    "module": "CommonJS",
+    "paths": {
+      "@components/*": ["./src/app/shared/components/*"],
+      "@pages/*": ["./src/app/pages/*"],
+      "@services/*": ["./src/app/shared/services/*"],
+      "@directives/*": ["./src/app/shared/directives/*"],
+      "@enums/*": ["./src/app/shared/enums/*"],
+    }
   },
   "files": ["src/setup.jest.ts"],
   "include": [
