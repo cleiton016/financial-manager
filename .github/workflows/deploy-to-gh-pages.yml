@@ -30,4 +30,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/browser # substitua pelo nome correto do diretório de build
+          publish_dir: ./dist/[nome-do-seu-projeto]
