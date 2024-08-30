@@ -47,7 +47,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}  # Utilizando o GITHUB_TOKEN padrão
           commit-message: "Auto-generated PR from develop to main"
           branch: main  # Branch de destino
-          base: main    # Certifique-se que `main` é a branch base
+          base: develop    # Certifique-se que `main` é a branch base
           title: "Sync develop with main"
           body: "Este PR foi criado automaticamente para sincronizar as mudanças da develop com a main."
           assignees: ''  # Pode adicionar responsáveis automaticamente
