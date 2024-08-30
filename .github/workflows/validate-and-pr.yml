@@ -1,10 +1,7 @@
-name: Validate and Create Pull Request
+name: Validate and Create PR
 
 on:
   push:
-    branches:
-      - develop
-  pull_request:
     branches:
       - develop
 
@@ -13,42 +10,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out code
-        uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '18'
 
-      - name: Install dependencies
-        run: npm install
+    - name: Install dependencies
+      run: npm install
 
-      - name: Run Lint
-        run: npm run lint
+    - name: Run ESLint
+      run: npm run lint
 
-      - name: Run Tests
-        run: npm run test -- --watch=false --browsers=ChromeHeadless
+    - name: Run unit tests
+      run: npm run test
 
-      - name: Build Project
-        run: npm run build -- --configuration=production
+    - name: Build project
+      run: npm run build
 
-  create_pull_request:
-    needs: validate
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v3
-
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
-        with:
-          token: ${{ secrets.PAT_TOKEN }}  # Utilizando o GITHUB_TOKEN padrão
-          commit-message: "Auto-generated PR from develop to main"
-          branch: main  # Branch de destino
-          base: develop    # Certifique-se que `main` é a branch base
-          title: "Sync develop with main"
-          body: "Este PR foi criado automaticamente para sincronizar as mudanças da develop com a main."
-          assignees: ''  # Pode adicionar responsáveis automaticamente
-          reviewers: 'cleiton016'  # Pode adicionar revisores automaticamente
+    - name: Create Pull Request
+      id: create_pr
+      uses: peter-evans/create-pull-request@v3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        commit-message: 'Auto-generated PR from develop'
+        branch: 'auto-pr-develop-to-main'
+        base: 'main'
+        title: 'Auto PR: Merge develop into main'
+        body: 'This PR is automatically generated from develop branch.'
