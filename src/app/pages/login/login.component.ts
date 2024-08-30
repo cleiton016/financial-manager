@@ -11,7 +11,7 @@ import { ButtonComponent } from "../../shared/components/buttons/button/button.c
 })
 export class LoginComponent {
 login($event: SubmitEvent) {
-throw new Error('Method not implemented.');
+  console.log($event);
 }
 
 }
