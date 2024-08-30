@@ -4,12 +4,12 @@
 
 <h1 class="text-center tracking-in-expand py-5">Finance Manager</h1>
 @switch (currentPage) {
-@case (navigation.login) {
-<fm-login [class]="classAnimation"></fm-login>
-}
-@case (navigation.register) {
+    @case (navigation.login) {
+        <fm-login [class]="classAnimation"></fm-login>
+    }
+    @case (navigation.register) {
 
-}
+    }
 }
 <div class="line-buttons">
     <fm-button full animation outline (click)="setAnimation('in', 'slide-in-top', navigation.login)"
