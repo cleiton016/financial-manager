@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "app-financial-manager": {
+    "financial-manager": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -62,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "app-financial-manager:build:production"
+              "buildTarget": "financial-manager:build:production"
             },
             "development": {
-              "buildTarget": "app-financial-manager:build:development"
+              "buildTarget": "financial-manager:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +73,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "app-financial-manager:build"
+            "buildTarget": "financial-manager:build"
           }
         },
         "lint": {
