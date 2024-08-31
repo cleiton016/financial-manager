@@ -46,6 +46,8 @@ jobs:
         with:
           token: ${{ secrets.PAT_TOKEN }}  # Utilize o token pessoal se necessário
           commit-message: 'Auto-generated PR from feature branch'
+          branch: develop 
+          base: main
           title: 'Auto PR: Merge feature branch into main'
           body: 'This PR is automatically generated from feature branch.'
 
