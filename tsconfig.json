@@ -27,7 +27,8 @@
       "@pages/*": ["./src/app/pages/*"],
       "@services/*": ["./src/app/shared/services/*"],
       "@directives/*": ["./src/app/shared/directives/*"],
-      "@enums/*": ["./src/app/shared/enums/*"]
+      "@enums/*": ["./src/app/shared/enums/*"],
+      "@shared/*": ["./src/app/shared/*"]
     }
   },
   "angularCompilerOptions": {
