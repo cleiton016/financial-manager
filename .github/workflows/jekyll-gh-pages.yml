@@ -37,7 +37,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist/[nome-do-seu-projeto]  # Substitua pelo diretório de build do seu projeto
+          path: ./dist/browser  # Substitua pelo diretório de build do seu projeto
 
   # Deployment job
   deploy:
