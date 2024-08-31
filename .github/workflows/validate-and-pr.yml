@@ -46,7 +46,6 @@ jobs:
         with:
           token: ${{ secrets.PAT_TOKEN }}  # Utilize o token pessoal se necessário
           commit-message: 'Auto-generated PR from feature branch'
-          author: '${{ github.actor }} from Actions'  # Nome do autor do PR
           branch: 'auto-pr-branch'  # Nome da nova branch temporária criada a partir da branch de origem
           base: 'main'  # Branch alvo do PR
           title: 'Auto PR: Merge feature branch into main'
