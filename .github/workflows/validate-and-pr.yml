@@ -46,12 +46,10 @@ jobs:
         with:
           token: ${{ secrets.PAT_TOKEN }}  # Utilize o token pessoal se necessário
           commit-message: 'Auto-generated PR from feature branch'
-          branch: 'auto-pr-branch'  # Nome da nova branch temporária criada a partir da branch de origem
-          base: 'main'  # Branch alvo do PR
           title: 'Auto PR: Merge feature branch into main'
           body: 'This PR is automatically generated from feature branch.'
 
       - name: PR URL
         run: |
-          echo "PR URL: ${{ steps.create_pr.outputs.pull-request-url }}"
+          echo "PR URL: ${{ steps.create_pr.outputs }}"
       
