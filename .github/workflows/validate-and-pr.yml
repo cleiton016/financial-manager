@@ -36,7 +36,7 @@ jobs:
       with:
         token: ${{ secrets.PAT_TOKEN }}
         commit-message: 'Auto-generated PR from develop'
-        branch: 'auto-pr-develop-to-main'
+        branch: 'develop'
         base: 'main'
         title: 'Auto PR: Merge develop into main'
         body: 'This PR is automatically generated from develop branch.'
