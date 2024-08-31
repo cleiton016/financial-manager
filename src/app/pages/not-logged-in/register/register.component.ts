@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ButtonComponent } from "../../shared/components/buttons/button/button.component";
-import { SharedModule } from '../../shared/shared.module';
+import { ButtonComponent } from "@components/buttons/button/button.component";
+import { SharedModule } from '@shared/shared.module';
 
 @Component({
   selector: 'fm-register',

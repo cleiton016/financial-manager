@@ -1,4 +1,4 @@
-import { HomeComponent } from '@pages/home/home.component';
+import { HomeComponent } from '@pages/not-logged-in/home/home.component';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { WindowRef } from '@services/windowRef';
 import { NavigationHome } from '@enums/navigation-home.enum';

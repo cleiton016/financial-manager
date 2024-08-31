@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { SharedModule } from '../../shared/shared.module';
-import { ButtonComponent } from "../../shared/components/buttons/button/button.component";
+import { SharedModule } from '../../../shared/shared.module';
+import { ButtonComponent } from "../../../shared/components/buttons/button/button.component";
 
 @Component({
   selector: 'fm-login',
