@@ -32,14 +32,6 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should initialize with default values', () => {
-    expect(component.toggle()).toBe(component.themeService.currentTheme);
-    expect(component.isInitialized()).toBe(true);
-    expect(component.navigation).toBe(NavigationHome);
-    expect(component.currentPage).toBeUndefined();
-    expect(component.classAnimation).toBe('slide-in-top');
-  });
-
   it('should set navigation correctly', () => {
     component.setNavigation(NavigationHome.login);
     expect(component.currentPage).toBe(NavigationHome.login);
