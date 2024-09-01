@@ -7,7 +7,7 @@
 
 
     <!-- Esse form não deve recaregar a pagina quando ouver um submit -->
-    <form class="from-group mt-5" (submit)="login($event)">
+    <form class="from-group mt-5">
         <div style="display: flex; flex-direction: column; width: 100%; justify-content: space-between;">
             <input fmTextInput type="text" placeholder="E-mail">
             <input fmTextInput type="text" placeholder="Senha"  class="my-5">
@@ -15,5 +15,5 @@
         </div>
     </form>
 
-    <fm-button full animation contrast="onBrand" >Entrar</fm-button>
+    <fm-button full animation contrast="onBrand" (click)="login()" >Entrar</fm-button>
 </div>

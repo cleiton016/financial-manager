@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { SharedModule } from '../../../shared/shared.module';
 import { ButtonComponent } from "../../../shared/components/buttons/button/button.component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'fm-login',
@@ -10,7 +11,10 @@ import { ButtonComponent } from "../../../shared/components/buttons/button/butto
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  login($event: SubmitEvent) {
-    console.log($event);
+  route = inject(Router);
+  login() {
+    console.log('login method');
+    
+    this.route.navigate(['/customer-area']);
   }
 }
