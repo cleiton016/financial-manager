@@ -14,7 +14,8 @@
       "@services/*": ["./src/app/shared/services/*"],
       "@directives/*": ["./src/app/shared/directives/*"],
       "@enums/*": ["./src/app/shared/enums/*"],
-      "@shared/*": ["./src/app/shared/*"]
+      "@shared/*": ["./src/app/shared/*"],
+      "@interfaces/*": ["./src/app/shared/interfaces/*"]
     }
   },
   "files": ["src/setup.jest.ts"],
