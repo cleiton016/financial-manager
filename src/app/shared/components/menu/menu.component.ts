@@ -1,4 +1,4 @@
-import { booleanAttribute, Component, computed, ElementRef, inject, Input, input, model } from '@angular/core';
+import { booleanAttribute, Component, inject, Input, input, OnInit } from '@angular/core';
 import { IconComponent } from "../icon/icon.component";
 import { MenuService } from '@services/menu.service';
 import { TreeMenuComponent } from "../tree-menu/tree-menu.component";
@@ -12,7 +12,7 @@ import { NgIf } from '@angular/common';
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
 })
-export class MenuComponent {
+export class MenuComponent implements OnInit {
   dr = inject(MenuService)
 
   toggle = input(false, { transform: booleanAttribute})

@@ -1,6 +1,6 @@
 import { NgStyle } from '@angular/common';
-import { Component, inject, input, InputSignal } from '@angular/core';
-import { IconsNames } from '@enums/icons.enum';
+import { Component, inject, Input, input, OnInit } from '@angular/core';
+import { Icons, IconsNames } from '@enums/icons.enum';
 import { IconService } from '@services/icon.service';
 import { SafeHtmlPipe } from '@shared/pipes/safe-html.pipe';
 
@@ -8,13 +8,13 @@ import { SafeHtmlPipe } from '@shared/pipes/safe-html.pipe';
   selector: 'fm-icon',
   standalone: true,
   imports: [SafeHtmlPipe, NgStyle],
-  template: `<span [style.width]="size()" [style.height]="size()" [innerHTML]="svgIcon | safeHtml"> </span>`,
+  templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.scss'],
 })
-export class IconComponent {
+export class IconComponent implements OnInit {
   iconService = inject(IconService);
-  
-  name: InputSignal<IconsNames | any> = input();
+
+  @Input() name!: Icons
   size = input('30px', {transform: (value: string) => `${value}px`});
   color = input('var(--on-brand)');
   
@@ -22,8 +22,6 @@ export class IconComponent {
 
   subscribes = []
   ngOnInit(): void {
-    console.log(this.size());
-    
     this.iconService.getIcon(this.iconName).subscribe(icon => {
       icon = icon.replace(/width="[0-9]*px"/g, `width="${this.size()}"`);
       icon = icon.replace(/height="[0-9]*px"/g, `height="${this.size()}"`);
@@ -32,6 +30,6 @@ export class IconComponent {
     });
   }
   private get iconName() {
-    return IconsNames[this.name()];
+    return IconsNames[this.name];
   }
 }
