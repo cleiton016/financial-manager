@@ -1,7 +1,7 @@
 <ul class="tree-view" [class.expanded-ul]="dr.stateExpand()">
       @for(item of menuItems; track item.expanded; let id = $index){
         <li [class.expanded]="selected === id && item.expanded">
-            <div [ngClass]="dr.stateExpand()? 'title': 'item-center'" (click)="toggle(item, id)">
+            <div [ngClass]="dr.stateExpand()? 'title': 'item-center'" (click)="toggle(item, id)" (keyup)="false" tabindex="1">
               <fm-icon [name]="item.icon" size="30" color="var(--primary-color)" class="icon"></fm-icon>
               <h5 *ngIf="dr.stateExpand()">{{ item.label }}</h5>
             </div>
