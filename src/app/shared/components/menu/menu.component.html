@@ -1,0 +1,10 @@
+
+@if (dr.stateShowMenu()) {
+    <nav [class]="dr.animationClass" [class.expanded]="dr.stateExpand()" >
+        <div class="expand-icon">
+            <fm-icon *ngIf="!dr.stateExpand()" name="arrowRight" color="var(--primary-color)" (click)="dr.changeExpand()"></fm-icon>
+            <fm-icon *ngIf="dr.stateExpand()" name="arrowLeft" color="var(--primary-color)" (click)="dr.changeExpand()"></fm-icon>
+        </div>
+          <fm-tree-menu [menuItems]="menuItems" ></fm-tree-menu>
+    </nav>
+}

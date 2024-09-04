@@ -1,6 +1,6 @@
 import { Component, effect, signal, OnDestroy } from '@angular/core';
 import { AbstractComponent } from '@components/abstract/abstract.component';
-import { ToggleComponent } from "../buttons/toggle/toggle.component";
+import { ToggleComponent } from '@components/buttons/toggle/toggle.component';
 
 @Component({
   selector: 'fm-header',

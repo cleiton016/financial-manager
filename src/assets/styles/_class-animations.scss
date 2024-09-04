@@ -1,15 +1,36 @@
+/* animation text */
 .tracking-in-expand {
     -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
     animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 }
 
+.focus-in-expand {
+	animation: focus-in-expand 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
 
+/* animations entrances */
 .slide-in-top {
 	animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .slide-out-top {
 	animation: slide-out-top 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+.tilt-in-left-1 {
+	animation: tilt-in-left-1 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.tilt-out-left-1 {
+    animation: tilt-out-left-1 0.6s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+.slide-out-elliptic-left-bck {
+	animation: slide-out-elliptic-left-bck 0.7s ease-in both;
+}
+
+.slide-fwd-center {
+	animation: slide-fwd-center 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .ripple {
