@@ -8,10 +8,12 @@
   --card-surface-color: #f5f5f5;
   --on-surface-color: #333333;
   --box-shadow-color: #cacaca;
-  --on-brand: #ffffff;
+  --on-brand: #000000;
+  --on-brand-trans: #ffffff;
   
   --error-color: #b00020;
-  --box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --box-shadow: 0 1px 3px 0 #0000001a, 0 1px 2px -1px #0000001a;
+  --box-shadow-menu: 0px 0px 5px 2px #0000001f;
   
   --input-background: #fff;
   --input-color: #202020;
@@ -28,8 +30,10 @@
   --card-surface-color: #18181b;
   --on-surface-color: #e0e0e0;
   --box-shadow-color: #2c2c2c;
+
   --input-background: #2c2c2c;
   --on-brand: #ffffff;
+  --on-brand-trans: #ffffff3f;
 
   --error-color: #cf6679;
 
