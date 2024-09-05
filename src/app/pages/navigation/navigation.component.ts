@@ -4,6 +4,7 @@ import { HeaderComponent } from "../../shared/components/header/header.component
 import { MenuComponent } from "../../shared/components/menu/menu.component";
 import { TreeMenuItem } from '@shared/interfaces/tree-menu.interface';
 import { IconsNames } from '@enums/icons.enum';
+import { MENU_NAVIGATION } from '@shared/utils/menu-navigation';
 
 @Component({
   selector: 'fm-navigation',
@@ -14,21 +15,5 @@ import { IconsNames } from '@enums/icons.enum';
 })
 export class NavigationComponent extends AbstractComponent {
   icons = IconsNames
-  menuItems: TreeMenuItem[] = [
-    {
-      label: 'Settings',
-      icon: this.icons.settings,
-      children: [
-        { label: 'Profile' , icon: this.icons.person },
-        { label: 'Change Password', icon: 'lockClosed' },
-        { label: 'Logout', icon: this.icons.logout }
-      ],
-    },
-    { label: 'Investimentos', icon: this.icons.banknotes },
-    {
-      label: 'Gastos',
-      icon: this.icons.expenses,
-      
-    }
-  ];
+  menuItems: TreeMenuItem[] = MENU_NAVIGATION
 }
