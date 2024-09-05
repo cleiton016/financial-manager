@@ -12,12 +12,20 @@ export enum IconsNames {
     person = 'person',
     lockClosed = 'lock-closed',
     lockOpen = 'lock-open',
+    wallet = 'wallet',
+    sun = 'sun',
+    scale = 'scale',
+    dashboard = 'dashboard',
+    moon = 'moon',
+    home = 'home',
+    listBullet = 'list-bullet',
+    check = 'check',
+    checkCircle = 'check-circle',
+    expenses = 'expenses',
+    banknotes = 'banknotes',
+    logout = 'logout',
 
     // sem SVG 
-    logout = 'logout',
-    banknotes = 'banknotes',
-    expenses = 'expenses',
-    check = 'check',
     close = 'close',
 
 } 
