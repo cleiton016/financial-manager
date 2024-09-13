@@ -1,3 +1,5 @@
 <fm-header></fm-header>
-
 <fm-menu [menuItems]="menuItems" toggle fixed ></fm-menu>
+<div class="content-navigation" [class.expanded]="dr.stateExpand()">
+    <router-outlet></router-outlet>
+</div>

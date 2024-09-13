@@ -1,4 +1,23 @@
 :host {
     display: block;
     height: 100vh;
+
+    .content-navigation {
+        display: flex;
+        flex-direction: column;
+        left: 104px;
+        right: 18px;
+        top: 52px;
+        bottom: 30px;
+        position: fixed;
+        border-radius: 8px;
+        //background-color: aliceblue;
+        transition: 0.3s;
+        //padding: 0 18px
+    }
+
+    .content-navigation.expanded {
+        left: 266px;
+        transition: 0.3s;
+    }
 }
