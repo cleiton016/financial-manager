@@ -4,7 +4,7 @@ import { ButtonComponent } from '@components/buttons/button/button.component';
 import { ToggleComponent } from "@components/buttons/toggle/toggle.component";
 import { InputDirective } from '@directives/input.directive';
 import { RippleDirective } from '@directives/ripple.directive';
-import { NavigationHome } from '@enums/navigation-home.enum';
+import { NavigationHome } from '@enums/navigation.enum';
 import { LoginComponent } from "../login/login.component";
 import { NgIf } from '@angular/common';
 import { RegisterComponent } from "../register/register.component";
