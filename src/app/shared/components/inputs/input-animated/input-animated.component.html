@@ -1,0 +1,6 @@
+<div class="input-container">
+    <input id="inputField" type="text" (focus)="onFocus()" (blur)="onBlur()" 
+    [(ngModel)]="inputValue" (input)="ngOnChange && ngOnChange(inputValue)" [disabled]="isDisabled">
+    <label [class.focused]="inputValue || isFocused" for="inputField">{{ label() }}</label>
+</div>
+  
