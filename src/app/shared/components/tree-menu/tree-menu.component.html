@@ -3,9 +3,9 @@
         <li class="" [class.expanded]="selected === id && item.expanded">
             <div [ngClass]="dr.stateExpand()? 'title': 'item-center'" (click)="toggle(item, id)" (keyup)="false" tabindex="1">
               <fm-icon [name]="item.icon" size="30" color="var(--primary-color)" class="icon"></fm-icon>
-              <h5 *ngIf="dr.stateExpand()">{{ item.label }}</h5>
+              <h5 class="scale-in-hor-left" *ngIf="dr.stateExpand()">{{ item.label }}</h5>
             </div>
-            @if (item.children && item.expanded) {
+            @if (item.children && item.expanded && selected === id) {
                 <fm-tree-menu [menuItems]="item.children"></fm-tree-menu>
             }
           </li>

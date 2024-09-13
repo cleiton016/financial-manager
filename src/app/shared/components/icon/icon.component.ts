@@ -25,7 +25,8 @@ export class IconComponent implements OnInit {
     this.iconService.getIcon(this.iconName).subscribe(icon => {
       icon = icon.replace(/width="[0-9]*px"/g, `width="${this.size()}"`);
       icon = icon.replace(/height="[0-9]*px"/g, `height="${this.size()}"`);
-      icon = icon.replaceAll(/stroke=".*?"/g, `stroke="${this.color()}"`);     
+      icon = icon.replaceAll(/stroke=".*?"/g, `stroke="${this.color()}"`);
+      icon = icon.replaceAll(/fill="#.*?"/g, `fill="${this.color()}"`);     
       this.svgIcon = icon;
     });
   }

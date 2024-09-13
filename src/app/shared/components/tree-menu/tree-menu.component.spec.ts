@@ -4,6 +4,8 @@ import { MenuService } from '@services/menu.service';
 import { TreeMenuItem } from '@interfaces/tree-menu.interface';
 import { IconComponent } from "../icon/icon.component";
 import { NgClass, NgIf } from '@angular/common';
+import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
 // Mock do MenuService
 class MockMenuService {
@@ -13,15 +15,17 @@ class MockMenuService {
 describe('TreeMenuComponent', () => {
   let component: TreeMenuComponent;
   let fixture: ComponentFixture<TreeMenuComponent>;
+  let router: Router;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NgIf, IconComponent, NgClass, TreeMenuComponent],
+      imports: [NgIf, IconComponent, NgClass, RouterTestingModule, TreeMenuComponent],
       providers: [{ provide: MenuService, useClass: MockMenuService }]
     }).compileComponents();
 
     fixture = TestBed.createComponent(TreeMenuComponent);
     component = fixture.componentInstance;
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -53,10 +57,26 @@ describe('TreeMenuComponent', () => {
     expect(component.selected).toBe(undefined);
   });
 
+  // Teste para verificar se o método navigation navega corretamente
+  it('deve navegar para o caminho correto ao chamar navigation', () => {
+    const navigateSpy = jest.spyOn(router, 'navigate');
+    const item: TreeMenuItem = { label: 'teste', icon: 'arrowDown', expanded: false, path: '/test-path' };
+    component.navigation(item);
+    expect(navigateSpy).toHaveBeenCalledWith(['/test-path']);
+  });
+
   // Teste para verificar se o @Input menuItems é definido corretamente
   it('deve definir o @Input menuItems corretamente', () => {
     const menuItems: TreeMenuItem[] = [{ label: 'teste', icon: 'arrowDown', expanded: false }];
     component.menuItems = menuItems;
     expect(component.menuItems).toBe(menuItems);
+  });
+
+  // Teste para verificar se o método toggle chama a ação do item corretamente
+  it('deve chamar a ação do item ao alternar', () => {
+    const actionSpy = jest.fn();
+    const item: TreeMenuItem = { label: 'teste', icon: 'arrowDown', expanded: false, action: actionSpy };
+    component.toggle(item, 1);
+    expect(actionSpy).toHaveBeenCalled();
   });
 });

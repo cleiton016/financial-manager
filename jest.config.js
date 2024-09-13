@@ -14,7 +14,10 @@ module.exports = {
   coveragePathIgnorePatterns:[
     ".config.ts",
     ".routes.ts",
+    ".enum.ts",
+    ".module.ts",
     "windowRef.ts",
+    "menu-navigation.ts",
   ],
   coverageThreshold: {
     global: {

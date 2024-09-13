@@ -33,6 +33,10 @@
 	animation: slide-fwd-center 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
+.scale-in-hor-left {
+	animation: scale-in-hor-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
 .ripple {
     position: absolute;
     border-radius: 50%;

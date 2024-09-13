@@ -24,6 +24,8 @@ export enum IconsNames {
     expenses = 'expenses',
     banknotes = 'banknotes',
     logout = 'logout',
+    receiptLong = 'receipt-long',
+    category = 'category',
 
     // sem SVG 
     close = 'close',

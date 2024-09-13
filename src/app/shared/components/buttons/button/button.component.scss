@@ -1,9 +1,9 @@
 :host {
-  display: block;
+  display: flex;
+  
   button:disabled {
    opacity: 0.6;
    position: relative; /* Necessário para que o ripple seja posicionado dentro do botão */
    overflow: hidden;   /* Garante que o ripple não saia dos limites do botão */
-   
   }  
 }

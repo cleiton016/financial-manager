@@ -5,11 +5,12 @@ import { MenuComponent } from "../../shared/components/menu/menu.component";
 import { TreeMenuItem } from '@shared/interfaces/tree-menu.interface';
 import { IconsNames } from '@enums/icons.enum';
 import { MENU_NAVIGATION } from '@shared/utils/menu-navigation';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'fm-navigation',
   standalone: true,
-  imports: [HeaderComponent, MenuComponent],
+  imports: [HeaderComponent, MenuComponent, RouterOutlet],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss'
 })
