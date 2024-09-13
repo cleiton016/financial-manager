@@ -22,6 +22,7 @@ export class ButtonComponent implements AfterViewInit {
   contrast = input<Contrast>();
   animation = input(false, { transform: booleanAttribute });
   full = input(false, { transform: booleanAttribute });
+  height = input('30px');
   disable = input(false, { transform: booleanAttribute });
   outline = input(false, { transform: booleanAttribute });
   myClass = input<string>();
@@ -34,7 +35,7 @@ export class ButtonComponent implements AfterViewInit {
       'color': this.contrast() ? 'var(--on-brand)' : 'var(--surface-color)',
       'border-radius': '40px',
       'width': this.full() ? '100%' : 'auto',
-      'height': '30px',
+      'height': this.height()?? '30px',
       'border': this.outline() ? 'solid 1px var(--primary-color)' : '0',
       'cursor': 'pointer',
       'overflow': 'hidden',
