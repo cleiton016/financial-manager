@@ -1,0 +1,20 @@
+<div class="card">
+    <h3 class="card-header">Gastos</h3>
+</div>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row gap-3">
+        <div class="col-4">
+            <fm-input-animated formControlName="name" label="Nome"></fm-input-animated>
+        </div>
+        <div class="col-4">
+            <fm-input-animated formControlName="value" label="Valor"></fm-input-animated>
+        </div>
+        <div class="col-2">
+            <fm-input-animated formControlName="date" label="Data"></fm-input-animated>
+        </div>
+        <div class="col-2 ">
+            <fm-button full height="40px" animation contrast="onBrand" >Adicionar</fm-button>
+        </div>
+    </div>
+</form>
